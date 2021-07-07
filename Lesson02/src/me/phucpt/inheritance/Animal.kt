@@ -1,20 +1,23 @@
-package me.phucpt.decor
+package me.phucpt.inheritance
 
-abstract class Animal() {
+import jdk.jfr.consumer.RecordedClass
+
+// Interface declare
+interface  Roamable {
+    fun roam()
+}
+
+abstract class Animal() : Roamable {
     abstract val image: String
     abstract val food: String
     abstract val habitat: String
     var hunger: Int = 10
 
-    open fun makeNoise() {
-        println("The Animal is making a noise")
-    }
+    abstract fun makeNoise()
 
-    open fun eat() {
-        println("The Animal is eating")
-    }
+    abstract fun eat()
 
-    open fun roam() {
+    override fun roam() {
         println("The Animal is roaming")
     }
 
@@ -58,11 +61,27 @@ class Wolf : Canine() {
     }
 }
 
+class Vehicle : Roamable {
+    override fun roam() {
+        println("The Vehicle is roaming")
+    }
+}
+
 class Vet {
     fun giveShot(animal: Animal) {
         animal.makeNoise()
     }
 }
+
+//class MyRoamable() {
+//    var r: Roamable = Wolf()
+//
+//    fun myFunction() {
+//        if (r is Wolf) {
+//            r.eat()
+//        }
+//    }
+//}
 
 
 fun main() {
@@ -77,5 +96,13 @@ fun main() {
     val hippo = Hippo()
     vet.giveShot(wolf)
     vet.giveShot(hippo)
+
+    val roamables = arrayOf(Hippo(), Wolf(), Vehicle())
+    for (item in roamables) {
+        item.roam()
+        if (item is Animal) {
+            item.eat()
+        }
+    }
 }
 

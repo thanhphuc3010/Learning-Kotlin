@@ -1,6 +1,4 @@
-package me.phucpt.decor
-
-import java.sql.Driver
+package me.phucpt.inheritance
 
 data class Decoration(val rocks: String, val wood: String, val diver: String) {
     companion object {

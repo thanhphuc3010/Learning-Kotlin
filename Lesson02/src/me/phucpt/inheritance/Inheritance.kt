@@ -1,4 +1,4 @@
-package me.phucpt.decor
+package me.phucpt.inheritance
 
 open class Inheritance(p: Int, h: Int, u: Double)
 

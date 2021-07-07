@@ -62,7 +62,7 @@ public class Number {
         }
         return a;
     }
-
+    // Code đã tối ưu hay chưa ??
     public static int findLCM(Number x, Number y) {
         return (x.value * y.value) / findGCD(x, y);
     }
