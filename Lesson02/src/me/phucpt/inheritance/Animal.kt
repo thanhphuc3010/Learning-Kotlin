@@ -1,13 +1,11 @@
 package me.phucpt.inheritance
 
-import jdk.jfr.consumer.RecordedClass
-
 // Interface declare
-interface  Roamable {
+interface Roamable {
     fun roam()
 }
 
-abstract class Animal() : Roamable {
+abstract class Animal : Roamable {
     abstract val image: String
     abstract val food: String
     abstract val habitat: String
@@ -83,6 +81,20 @@ class Vet {
 //    }
 //}
 
+class MyWolf {
+    var w: Wolf? = Wolf()
+
+    fun myFunction() {
+        w?.eat() // Only call Wolf's eat function when w is not null
+        println(w?.hunger)
+        w?.let {
+            println(it.hunger)
+        }
+
+        var a = w?.hunger ?: -1
+    }
+
+}
 
 fun main() {
     val animals = arrayOf(Hippo(), Wolf())
@@ -104,5 +116,20 @@ fun main() {
             item.eat()
         }
     }
+
+    println(wolf.habitat)
+
+    var w: Wolf? = Wolf()
+    if (w != null) {
+        w.eat() // Smart cast normally
+    }
+
+    val myArray = arrayOf("Hi", "Hello", null)
+    for (item in myArray) {
+        item?.let {
+            println(it)
+        }
+    }
+
 }
 
