@@ -52,4 +52,10 @@ fun main() {
         println("Recipe1 is: ${mRecipeMap.getValue("Recipe1")}")
     }
 
+    val recipeList: MutableList<Recipe>
+
+    recipeList = mutableListOf(r1, r2, r3, r4)
+
+    println(recipeList)
+
 }
