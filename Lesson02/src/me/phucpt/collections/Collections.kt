@@ -1,7 +1,5 @@
 package me.phucpt.collections
 
-import javax.sound.midi.Receiver
-
 data class Recipe(var name: String)
 
 fun main() {
@@ -41,7 +39,7 @@ fun main() {
     val r4 = Recipe("Jambalaya")
     val r5 = Recipe("Sausage Rolls")
 
-    val mRecipeMap = mutableMapOf("Recipe1" to r1, "Recipe2" to r2,"Recipe3" to r3)
+    val mRecipeMap = mutableMapOf("Recipe1" to r1, "Recipe2" to r2, "Recipe3" to r3)
     println("mRecipeMap origin: $mRecipeMap")
 
     val recipeToAdd = mapOf("Recipe4" to r4, "Recipe5" to r5)
