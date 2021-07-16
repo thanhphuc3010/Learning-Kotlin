@@ -2,7 +2,7 @@ package me.phucpt.arraylist;
 
 import java.util.Comparator;
 
-public class Contact {
+public class Contact implements Comparable<Contact>{
     private String name;
     private String phone;
 
@@ -46,6 +46,27 @@ public class Contact {
     public String getLastName() {
         int index = name.lastIndexOf(' ');
         return name.substring(index + 1);
+    }
+
+//    @Override
+//    public int compare(Contact o1, Contact o2) {
+//        return o1.getLastName().compareTo(o2.getLastName());
+//    }
+    @Override
+    public int compareTo(Contact o) {
+        if (getLastName().compareTo(o.getLastName()) < 0) {
+            return -1;
+        } else if (getLastName().compareTo(o.getLastName()) > 0) {
+            return 1;
+        } else {
+            if (getFirstName().compareTo(o.getFirstName()) < 0) {
+                return -1;
+            } else if (getFirstName().compareTo(o.getFirstName()) > 0) {
+                return 1;
+            } else {
+                return getFirstName().compareTo(o.getFirstName());
+            }
+        }
     }
 }
 

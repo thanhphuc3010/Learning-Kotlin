@@ -1,6 +1,7 @@
 package me.phucpt.arraylist;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Manager {
@@ -44,7 +45,7 @@ public class Manager {
         if (!isExited(name, phone)) {
             Contact contact = new Contact(name, phone);
             listContact.add(contact);
-            System.out.println("Add successfully " + contact);
+            //System.out.println("Add successfully " + contact);
         } else {
             System.out.println("Contact is already exited");
         }
@@ -110,6 +111,33 @@ public class Manager {
                 .thenComparing(Contact::getLastName)
                 .thenComparing(Contact::getPhone);
         listContact.sort(cm);
+    }
 
+    public boolean checkContains(String key, String stringSearch) {
+        int countCharacterFounded = 0;
+        int indexFound = 0;
+        for (int i = 0; i < key.length(); i++) {
+            char ch1 = key.charAt(i);
+            for (int j = indexFound; j < stringSearch.length();j++) {
+                char ch2 = stringSearch.charAt(j);
+                if (ch1 == ch2 || ch1 == Character.toUpperCase(ch2) || ch1 == Character.toLowerCase(ch2) ) {
+                    countCharacterFounded++;
+                    indexFound = j + 1;
+                    break;
+                }
+            }
+        }
+        return countCharacterFounded == key.length();
+    }
+
+    public ArrayList<Contact> searchContact(String key) {
+        ArrayList<Contact> result = new ArrayList<Contact>();
+        for (Contact contact :
+                listContact) {
+            if (checkContains(key, contact.getName())) {
+                result.add(contact);
+            }
+        }
+        return result;
     }
 }

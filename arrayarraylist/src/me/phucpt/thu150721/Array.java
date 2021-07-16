@@ -58,6 +58,22 @@ public class Array {
 
     }
 
+    public static void  subStringIncreasing(int[] arr) {
+        boolean isSolution = false;
+        for (int i = 0; i < arr.length - 2; i++) {
+            int jump = arr[i + 1] - arr[i];
+            int indexStart = i + 1;
+            for (int j = indexStart; j < arr.length; j++) {
+                if (arr[j + 1] - arr[j] == jump) {
+                    System.out.print(arr[j]);
+                } else  break;
+            }
+//            if (arr[i + 1] - arr[i] == arr[i + 2] - arr[i + 1]) {
+//                System.out.println("[" + arr[i] + ", " + arr[i + 1] + ", " + arr[i + 2] + "]");
+//            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] ints = {1, 5, 6, 7, 10, 13, 20, 19};
         System.out.println(sum(ints));
@@ -74,15 +90,24 @@ public class Array {
         System.out.println(equilibriumIndex(arr));
         System.out.println(equilibriumIndex1(ints));
 
-        Student student1 = new Student("01", "Pham Phuc", 9.5);
-        Student student2 = new Student("02", "Nguyen Hoan", 7.5);
-        Student student3 = new Student("03", "Dang Lanh", 6.5);
-        Student student4 = new Student("04", "Nguyen Chien", 8.5);
-        Student student5 = new Student("05", "Bui Van", 9.75);
+        Arrays.sort(ints);
+        for (int item :
+                ints) {
+            System.out.println(item);
+        }
 
-        Student[] studentArr = {student1, student2, student3, student4, student5};
-        //me.phucpt.thu150721.Student.sortStudentsByScore(studentArr);
-        Arrays.sort(studentArr, new Student.sortByScore());
-        Student.displayAllStudents(studentArr);
+        subStringIncreasing(ints);
+
+
+//        Student student1 = new Student("01", "Pham Phuc", 9.5);
+//        Student student2 = new Student("02", "Nguyen Hoan", 7.5);
+//        Student student3 = new Student("03", "Dang Lanh", 6.5);
+//        Student student4 = new Student("04", "Nguyen Chien", 8.5);
+//        Student student5 = new Student("05", "Bui Van", 9.75);
+//
+//        Student[] studentArr = {student1, student2, student3, student4, student5};
+//        //me.phucpt.thu150721.Student.sortStudentsByScore(studentArr);
+//        Arrays.sort(studentArr, new Student.sortByScore());
+//        Student.displayAllStudents(studentArr);
     }
 }
