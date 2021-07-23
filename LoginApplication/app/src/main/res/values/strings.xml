@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LoginApplication</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="password">Password:</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="login">Login</string>
+    <string name="email">Email:</string>
+    <string name="not_register_create_account">Not register? Create account</string>
+    <string name="retype_your_password">Retype your password</string>
+    <string name="retype_password">Retype Password:</string>
+</resources>
